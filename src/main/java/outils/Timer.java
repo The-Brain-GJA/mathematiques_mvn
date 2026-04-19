@@ -23,7 +23,7 @@ public class Timer {
 		long nbSecondes = duree.getSeconds();
 		long nbMillisecondes = duree.toMillisPart();
 		String titre = libelle != null ? libelle : "Temps";
-		System.out.println(String.format("%s : %d.%d", titre, nbSecondes, nbMillisecondes));
+		System.out.println(String.format("%s : %d.%ds", titre, nbSecondes, nbMillisecondes));
 	}
 	
 }

@@ -81,7 +81,7 @@ public class Fonction {
 		return new Fonction(x -> (x >= min && x <= max) ? 1 / largeur : 0, min, max);
 	}
 
-	public static Fonction getLoiExponentielle(double lambda, double decalage) {
+	public static Fonction getLoiExponentielle(double decalage, double lambda) {
 
 		return new Fonction(x -> {
 			double X = x - decalage;
