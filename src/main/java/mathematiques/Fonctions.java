@@ -7,7 +7,7 @@ import outils.PairDouble;
 
 public class Fonctions {
 
-	private static double loi_normale(double x, double mu, double sigma) {
+	public static double loi_normale(double x, double mu, double sigma) {
 		
 		double un_sur_racine_carree = 1.0 / Math.sqrt(2 * Math.PI * sigma * sigma);
 		double argument_exp = - (x - mu) * (x - mu) / (2 * sigma * sigma);

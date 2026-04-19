@@ -3,6 +3,8 @@ package mathematiques;
 import java.util.List;
 import java.util.function.DoubleUnaryOperator;
 
+import org.apache.commons.math3.special.Erf;
+
 import outils.PairDouble;
 
 public class Fonction {
@@ -87,6 +89,19 @@ public class Fonction {
 			double X = x - decalage;
 			return X >= 0 ? lambda * Math.exp(- lambda * X) : 0;
 		}, 0, 1/lambda * 8);
+	}
+	
+	private static double psi(double x) {
+		return 0.5 * (1.0 + Erf.erf(x / Math.sqrt(2)));
+	}
+
+	private static double densiteLoiNormaleCentreeReduite(double x) {
+		return Fonctions.loi_normale(x, 0, 1);
+	}
+
+	public static Fonction getLoiNormaleAsymetrique(double alpha, double decalage, double echelle) {
+		return new Fonction(x -> 2.0 / echelle * densiteLoiNormaleCentreeReduite((x - decalage) / echelle)
+				* psi(alpha * ((x - decalage) / echelle)), decalage - echelle, decalage + 3.5 * echelle);
 	}
 
 }
